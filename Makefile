@@ -6,25 +6,30 @@
 #    By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 18:28:03 by migmoren          #+#    #+#              #
-#    Updated: 2023/02/22 19:35:09 by migmoren         ###   ########.fr        #
+#    Updated: 2023/02/23 19:27:39 by migmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 CC = gcc
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -Imlx
 
-SRC = main.c ft_init.c
+LMX = -Lmlx -lmlx -framework OpenGL -framework AppKit
+
+SRC = main.c ft_init.c 
 
 OBJS = ${SRC:.c=.o}
 
-.c.o: ${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+#.c.o: ${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(OBJS_LIBFT)
-	@ar rsc $(NAME) $(OBJS) $(OBJS_LIBFT)
+	$(CC) $(NAME) $(OBJS) $(OBJS_LIBFT) $(LMX) -o $(NAME)
 
 clean:
 	@rm -f $(OBJS) $(OBJS_LIBFT)

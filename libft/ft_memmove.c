@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 19:06:47 by migmoren          #+#    #+#             */
-/*   Updated: 2023/02/23 19:40:03 by migmoren         ###   ########.fr       */
+/*   Created: 2022/09/14 17:43:17 by migmoren          #+#    #+#             */
+/*   Updated: 2022/10/19 18:40:01 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main (int argc, char *argv[])
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_data	data;
-	
-	data.game = malloc(sizeof(t_game));
-	if (!data.game)
+	size_t	i;
+
+	i = -1;
+	if (!dest && !src)
 		return (0);
-		/*ft_printf("Error\nFallo de memoria\n");
-	if (argc < 2)
-		ft_printf("Error, faltan argumentos. Prueba con ./so_long (mapa).ber\n");
-	if (argc > 2)
-		ft_printf("Error, demasiados argumentos. Prueba con ./so_long (mapa).ber\n");
-	else
+	if (dest > src)
 	{
-
-	}*/
-
-	game_init(data.game);
-	screen_init(data);
-
-	return (0);
+		i = n - 1;
+		while (i >= 0 && i < n)
+		{
+			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+			i--;
+		}
+	}
+	else
+		while (++i < n)
+			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+	return (dest);
 }

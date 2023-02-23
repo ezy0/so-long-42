@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 19:06:47 by migmoren          #+#    #+#             */
-/*   Updated: 2023/02/23 19:40:03 by migmoren         ###   ########.fr       */
+/*   Created: 2022/09/22 18:21:01 by migmoren          #+#    #+#             */
+/*   Updated: 2022/10/17 17:52:51 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main (int argc, char *argv[])
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	t_data	data;
-	
-	data.game = malloc(sizeof(t_game));
-	if (!data.game)
+	size_t		i;
+	char		*str;
+	char const	*aux;
+
+	if (!s1 || !set)
 		return (0);
-		/*ft_printf("Error\nFallo de memoria\n");
-	if (argc < 2)
-		ft_printf("Error, faltan argumentos. Prueba con ./so_long (mapa).ber\n");
-	if (argc > 2)
-		ft_printf("Error, demasiados argumentos. Prueba con ./so_long (mapa).ber\n");
-	else
+	i = ft_strlen(s1);
+	aux = s1;
+	while (*aux && ft_strchr(set, *aux) != 0)
 	{
-
-	}*/
-
-	game_init(data.game);
-	screen_init(data);
-
-	return (0);
+		aux++;
+		i--;
+	}
+	while (i >= 0 && *aux && ft_strchr(set, aux[i]) != 0)
+		i--;
+	str = ft_substr(aux, 0, ++i);
+	if (!str)
+		return (0);
+	return (str);
 }

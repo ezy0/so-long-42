@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 19:06:47 by migmoren          #+#    #+#             */
-/*   Updated: 2023/02/23 19:40:03 by migmoren         ###   ########.fr       */
+/*   Created: 2022/10/02 17:56:44 by migmoren          #+#    #+#             */
+/*   Updated: 2022/10/19 19:09:56 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main (int argc, char *argv[])
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	t_data	data;
-	
-	data.game = malloc(sizeof(t_game));
-	if (!data.game)
+	int		i;
+	char	*str;
+
+	i = 0;
+	if (!s || !f)
 		return (0);
-		/*ft_printf("Error\nFallo de memoria\n");
-	if (argc < 2)
-		ft_printf("Error, faltan argumentos. Prueba con ./so_long (mapa).ber\n");
-	if (argc > 2)
-		ft_printf("Error, demasiados argumentos. Prueba con ./so_long (mapa).ber\n");
-	else
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!str)
+		return (0);
+	while (s[i])
 	{
-
-	}*/
-
-	game_init(data.game);
-	screen_init(data);
-
-	return (0);
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
