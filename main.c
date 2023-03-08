@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 19:06:47 by migmoren          #+#    #+#             */
-/*   Updated: 2023/02/23 19:40:03 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:00:04 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,20 @@ int main (int argc, char *argv[])
 {
 	t_data	data;
 	
-	data.game = malloc(sizeof(t_game));
+	data.game = (t_game *)malloc(sizeof(t_game));
 	if (!data.game)
-		return (0);
-		/*ft_printf("Error\nFallo de memoria\n");
-	if (argc < 2)
+		ft_printf("Error\nFallo de memoria\n");
+	else if (argc < 2)
 		ft_printf("Error, faltan argumentos. Prueba con ./so_long (mapa).ber\n");
-	if (argc > 2)
+	else if (argc > 2)
 		ft_printf("Error, demasiados argumentos. Prueba con ./so_long (mapa).ber\n");
+	else if (!ft_validate_extension(argv[1]))
+		ft_printf("Error\nLa extensión del mapa es errónea, utiliza un .ber\n");
 	else
 	{
-
-	}*/
-
-	game_init(data.game);
-	screen_init(data);
-
+		game_init(data.game);	//Inicializacion de los valores de game
+		map_init(data.game, argv[1]);
+		data_init(&data);
+	}
 	return (0);
 }

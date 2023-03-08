@@ -6,11 +6,11 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:20:18 by migmoren          #+#    #+#             */
-/*   Updated: 2022/11/13 19:36:05 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:48:37 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	ft_base(size_t num, char *base)
 {

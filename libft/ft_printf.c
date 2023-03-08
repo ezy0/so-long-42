@@ -6,11 +6,11 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 19:35:26 by migmoren          #+#    #+#             */
-/*   Updated: 2022/11/15 17:41:18 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:48:29 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_putchar(char c)
 {

@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:29:45 by migmoren          #+#    #+#             */
-/*   Updated: 2023/02/23 19:50:33 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:13:38 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <fcntl.h>
 # include "libft/libft.h"
 # include "mlx/mlx.h"
 
@@ -28,14 +29,6 @@ typedef struct s_game {
 	char	**map; //Mapa
 }						t_game;
 
-typedef struct s_img {
-	void	*img;	//Ptr a la imagen
-	char	*addr;	//Ptr a la direccion de memoria
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}						t_img;
-
 typedef struct s_data {
 	void	*mlx; //Puntero conectado a la libreria grafica
 	void	*win; //Puntero a la ventana actual
@@ -45,8 +38,9 @@ typedef struct s_data {
 
 
 void	game_init(t_game *game);
-void	screen_init(t_data data);
-void	my_mlx_pixel_put(t_data data, int x, int y, int color);
-
+void	data_init(t_data *data);
+void	map_init(t_game *game, char *map);
+int 	ft_validate_extension(char *map);
+void	ft_map_height(t_game *game, char *map);
 
 #endif

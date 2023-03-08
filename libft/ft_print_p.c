@@ -6,11 +6,11 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 18:18:00 by migmoren          #+#    #+#             */
-/*   Updated: 2022/11/13 19:38:43 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:48:41 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	ft_pointer(size_t num)
 {

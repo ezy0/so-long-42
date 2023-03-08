@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_s.c                                       :+:      :+:    :+:   */
+/*   ft_validate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 17:03:14 by migmoren          #+#    #+#             */
-/*   Updated: 2023/03/08 16:48:44 by migmoren         ###   ########.fr       */
+/*   Created: 2023/03/08 18:06:49 by migmoren          #+#    #+#             */
+/*   Updated: 2023/03/08 18:23:04 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-int	ft_print_s(char const *str)
+int	ft_validate_extension(char *map)
 {
-	if (!str)
-		return (write(1, "(null)", ft_strlen("(null)")));
-	return (write (1, str, ft_strlen(str)));
+	int		len;
+	char	*aux;
+
+	if (!map)
+		return (0);
+	len = ft_strlen(map);
+	aux = ft_substr(map, len-4, len-1);
+	if (!map || ft_strncmp(aux, ".ber", 4))
+		return(0);
+	return (1);
 }
