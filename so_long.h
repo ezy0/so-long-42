@@ -39,7 +39,7 @@ typedef struct s_img {
 typedef struct s_data {
 	void	*mlx; //Puntero conectado a la libreria grafica
 	void	*win; //Puntero a la ventana actual
-	t_img	*image; //Puntero a la imagen actual
+	void	*image; //Puntero a la imagen actual
 	t_game	*game; //Puntero al resto de información del juego
 }						t_data;
 
