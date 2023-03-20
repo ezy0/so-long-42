@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate.c                                      :+:      :+:    :+:   */
+/*   ft_handler.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 18:06:49 by migmoren          #+#    #+#             */
-/*   Updated: 2023/03/20 18:43:22 by migmoren         ###   ########.fr       */
+/*   Created: 2023/03/20 18:00:01 by migmoren          #+#    #+#             */
+/*   Updated: 2023/03/20 18:50:45 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_validate_extension(char *map)
+void	ft_map_error(int error, t_game *game, char *aux)
 {
-	int		len;
-	char	*aux;
+	if (error == 0)
+		ft_printf("Error\nNo se ha podido abrir el archivo\n");
+	if (error == 1)
+		ft_printf("Error\nFallo de memoria\n");
 
-	if (!map)
-		return (0);
-	len = ft_strlen(map);
-	aux = ft_substr(map, len-4, len-1);
-	if (!map || ft_strncmp(aux, ".ber", 4))
-		return(0);
-	return (1);
+	if (aux)
+		free(aux);
+	free(game);
+	exit (1);
 }

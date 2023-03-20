@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 19:13:47 by migmoren          #+#    #+#             */
-/*   Updated: 2023/03/08 19:15:10 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/03/20 18:56:29 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ void	map_init(t_game *game, char *map)
 	if (game->map_h == 0)
 	{
 		ft_printf("Error\nEl mapa está vacío\n");
+		free(game);
 		exit(1);
 	}
+	ft_parse_map(game, map);
 }
 
 void	data_init(t_data *data)

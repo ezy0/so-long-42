@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:29:45 by migmoren          #+#    #+#             */
-/*   Updated: 2023/03/08 19:13:38 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/03/20 18:50:03 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ void	data_init(t_data *data);
 void	map_init(t_game *game, char *map);
 int 	ft_validate_extension(char *map);
 void	ft_map_height(t_game *game, char *map);
+void	ft_map_error(int error, t_game *game, char *aux);
+void	ft_parse_map(t_game *game, char *map);
 
 #endif
