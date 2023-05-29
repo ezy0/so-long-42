@@ -6,7 +6,7 @@
 #    By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 18:28:03 by migmoren          #+#    #+#              #
-#    Updated: 2023/03/08 18:06:45 by migmoren         ###   ########.fr        #
+#    Updated: 2023/05/29 13:59:38 by migmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Imlx #Werror
 
 LMX = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
-SRC = main.c ft_init.c ft_map.c ft_validate.c
+SRC = main.c ft_init.c ft_map.c ft_validate.c ft_handler.c ft_mlx.c ft_renderize.c
 
 OBJS = ${SRC:.c=.o}
 
@@ -29,7 +29,7 @@ SRC_LIBFT = libft/ft_isalpha.c libft/ft_isdigit.c libft/ft_isalnum.c libft/ft_is
 			libft/ft_putchar_fd.c libft/ft_putstr_fd.c libft/ft_putendl_fd.c libft/ft_putnbr_fd.c \
 			libft/ft_lstnew_bonus.c libft/ft_lstadd_front_bonus.c libft/ft_lstsize_bonus.c libft/ft_lstlast_bonus.c \
 			libft/ft_lstclear_bonus.c libft/ft_lstadd_back_bonus.c libft/ft_lstdelone_bonus.c libft/ft_lstiter_bonus.c libft/ft_lstmap_bonus.c \
-			libft/ft_printf.c libft/ft_print_s.c libft/ft_print_p.c libft/ft_print_nbr.c
+			libft/ft_printf.c libft/ft_print_s.c libft/ft_print_p.c libft/ft_print_nbr.c libft/get_next_line.c
 
 OBJS_LIBFT	= ${SRC_LIBFT:.c=.o}
 

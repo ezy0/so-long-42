@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:25:20 by migmoren          #+#    #+#             */
-/*   Updated: 2023/03/20 18:56:21 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/05/29 13:18:02 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_map_height(t_game *game, char *map)
 {
 	char	*aux;
-	int		fd; 
+	int		fd;
 	int		i;
 
 	fd = open(map, O_RDONLY);
@@ -39,25 +39,28 @@ void	ft_map_height(t_game *game, char *map)
 
 void	ft_parse_map(t_game *game, char *map)
 {
-	int		h;
-	int 	fd;
-	char	*aux;
 	int		i;
+	int		fd;
+	char	*aux;
 
-	h = game->map_h;
-	game->map = (char **)malloc(sizeof(char) * (h + 1));
+	i = -1;
+	game->map = (char **)malloc(sizeof(char *) * (game->map_h + 1));
 	if (!game->map)
-		ft_map_error(1, game, aux);
+		ft_map_error(1, game, NULL);
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
-		ft_map_error(0, game, aux);
-	while (1)	//HAY QUE HACER ESTO
+		ft_map_error(0, game, NULL);
+	while (1)
 	{
-		i = read(fd, aux, 1);
-		if (i < 0 || (i == 0 && game->map_h == 0))
+		aux = NULL;
+		aux = get_next_line(fd);
+		if (!aux)
 			break ;
-		if (*aux == '\n' || i == 0)
-			game->map_h = game->map_h + 1;
+		game->map[++i] = ft_strdup(aux);
+		if (!game->map[i])
+			ft_map_error(1, game, aux);
+		free(aux);
 	}
 	close(fd);
+	game->map[++i] = 0;
 }
