@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:06:49 by migmoren          #+#    #+#             */
-/*   Updated: 2023/05/29 13:14:48 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/07/06 20:31:31 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ int	ft_validate_map(t_game *game)//COMPROBAR CAMINO VALIDO Y LA EXISTENCIA DE LO
 		}
 		h++;
 	}
-	if (!ft_validate_walls(game, h-1, len))
+	if (!ft_validate_walls(game, h-1, len) 
+		|| !ft_validate_elements(game, h, len))
 		ft_map_error(3, game ,NULL);
-	//AAqui se deberian validar tambien que esten los caracteress que tienen q estar ¿y el camino?
+	//Hay que chekear tambien el camino valido
 	return (1);
 }
 
@@ -60,5 +61,31 @@ int	ft_validate_walls(t_game *game, int h, int w)
 			return (0);
 		i++;
 	}
+	return (1);
+}
+
+int	ft_validate_elements(t_game *game, int h, int w)
+{
+	int	auxW;
+	int	auxH;
+	int	exit;
+	char aux;
+
+	auxW = 0;
+	exit = 0;
+	while(++auxW < w)
+	{
+		auxH = 0;
+		while (++auxH < h)
+		{
+			aux = game->map[auxH][auxW];
+			if (aux == 'E')
+				exit++;
+			else if (aux != '0' && aux != '1')
+				return (0);
+		}
+	}
+	if (exit != 1)
+		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:00:01 by migmoren          #+#    #+#             */
-/*   Updated: 2023/05/29 13:57:21 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/06/07 10:03:43 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	ft_map_error(int error, t_game *game, char *aux)
 		ft_printf("Error\nEl mapa está vacío\n");
 	if (error == 3)
 		ft_printf("Error\nEl mapa es incorrecto\n");
+	if (error == 4)
+		ft_printf("Error\nNo se ha encontrado la imagen\n");
 	if (aux != NULL)
 		free(aux);
 	if (game->map != NULL)
@@ -60,14 +62,16 @@ void	ft_mlx_error(t_data *data)
 	int	i;
 
 	i = 0;
-	if (data->game->map)
-	{
-		while(data->game->map[i])
-			free(data->game->map[i++]);
-		free(data->game->map);
-	}
 	if (data->game)
+	{
+		if (data->game->map)
+		{
+			while(data->game->map[i] != NULL)
+				free(data->game->map[i++]);
+			free(data->game->map);
+		}
 		free(data->game);
+	}
 	ft_printf("Error\nFallo creando la ventana de juego\n");
 }
 
@@ -76,14 +80,20 @@ int	ft_exit(t_data *data)
 	int	i;
 
 	i = 0;
-	if (data->game->map)
-	{
-		while(data->game->map[i])
-			free(data->game->map[i++]);
-		free(data->game->map);
-	}
 	if (data->game)
+	{
+		if (data->game->map)
+		{
+			while(data->game->map[i])
+				free(data->game->map[i++]);
+			free(data->game->map);
+		}
 		free(data->game);
-	mlx_destroy_window(data->mlx, data->win);
-	exit(EXIT_SUCCESS);
+	}
+	if (data->mlx && data->win)
+	{
+		mlx_destroy_window(data->mlx, data->win);
+		exit(0);
+	}
+	return (0);
 }
