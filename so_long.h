@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:29:45 by migmoren          #+#    #+#             */
-/*   Updated: 2023/07/06 20:27:59 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/07/07 12:22:02 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,34 @@
 # include "libft/libft.h"
 # include "mlx.h"
 
-/*--- ASSETS ---*/
+/*.... ASSETS ....*/
 # define BCKG_W 32
 # define BCKG_H 32
 
-# define FLOOR "assets/floor/floor.xpm"
-# define WALL "assets/wall/wall.xpm"
-# define CUL "assets/wall/corner_up_left.xpm"
-# define CUR "assets/wall/corner_up_right.xpm"
-# define LEFT "assets/wall/left.xpm"
-# define RIGHT "assets/wall/right.xpm"
-# define BARREL "assets/elements/barrel.xpm"
-# define DOOR_C "assets/elements/door_closed.xpm"
-# define DOOR_O "assets/elements/door_opened.xpm"
+# define FLOOR "textures/floor/floor.xpm"
+# define FLOOR2 "textures/floor/floor2.xpm"
+# define FLOOR3 "textures/floor/floor3.xpm"
+# define FLOOR4 "textures/floor/floor4.xpm"
+
+# define WALL "textures/wall/wall.xpm"
+# define CUL "textures/wall/corner_up_left.xpm"
+# define CUR "textures/wall/corner_up_right.xpm"
+# define LEFT "textures/wall/left.xpm"
+# define RIGHT "textures/wall/right.xpm"
+# define BARREL "textures/elements/barrel.xpm"
+# define DOOR_C "textures/elements/door_closed.xpm"
+# define DOOR_O "textures/elements/door_opened.xpm"
+# define KEY "textures/elements/key.xpm"
+# define PLAYER "textures/player/player.xpm"
+# define PLAYER_R "textures/player/player_right.xpm"
+# define PLAYER_L "textures/player/player_left.xpm"
+
+/*... KEYS ...*/
+# define ESC	53
+# define W		13
+# define A		0
+# define S		1
+# define D		2
 
 typedef struct s_game {
 	int		player_x;
@@ -51,7 +66,6 @@ typedef struct s_data {
 }						t_data;
 
 void	game_init(t_game *game);
-void	data_init(t_data *data);
 void	map_init(t_game *game, char *map);
 int		ft_validate_extension(char *map);
 void	ft_map_height(t_game *game, char *map);
@@ -65,9 +79,12 @@ void	ft_mlx_game(t_data *data);
 void	ft_mlx_error(t_data *data);
 int		ft_exit(t_data *data);
 void	ft_render(t_data *data);
-void	ft_floor(char *bckg, t_data *data);
+void	ft_floor(t_data *data);
 void	ft_put_img(char *img, int x, int y, t_data *data);
 void	ft_draw_walls(int w, int h, char map_char, t_data *data);
 void	ft_draw_elements(int w, int h, char map_char, t_data *data);
+int		ft_keys(int key, t_data *data);
+void	ft_movement(int x, int y, t_data *data);
+void	ft_print_movements(t_data *data);
 
 #endif

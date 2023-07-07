@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:00:01 by migmoren          #+#    #+#             */
-/*   Updated: 2023/06/07 10:03:43 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/07/07 13:17:28 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	ft_map_error(int error, t_game *game, char *aux)
 		free(aux);
 	if (game->map != NULL)
 	{
-		while(game->map[i] != NULL)
+		while (game->map[i] != NULL)
 			free(game->map[i++]);
 		free(game->map);
 	}
 	if (game != NULL)
-		free(game); 	
+		free(game);
 	exit (1);
 }
 
@@ -47,7 +47,7 @@ void	ft_main_exit(t_data *data)
 	i = 0;
 	if (data->game->map)
 	{
-		while(data->game->map[i])
+		while (data->game->map[i])
 			free(data->game->map[i++]);
 		free(data->game->map);
 	}
@@ -66,7 +66,7 @@ void	ft_mlx_error(t_data *data)
 	{
 		if (data->game->map)
 		{
-			while(data->game->map[i] != NULL)
+			while (data->game->map[i] != NULL)
 				free(data->game->map[i++]);
 			free(data->game->map);
 		}
@@ -84,7 +84,7 @@ int	ft_exit(t_data *data)
 	{
 		if (data->game->map)
 		{
-			while(data->game->map[i])
+			while (data->game->map[i])
 				free(data->game->map[i++]);
 			free(data->game->map);
 		}

@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 19:06:47 by migmoren          #+#    #+#             */
-/*   Updated: 2023/06/05 12:29:26 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/07/07 13:24:42 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,8 @@ int	main(int argc, char *argv[])
 		}
 		game_init(data.game);
 		map_init(data.game, argv[1]);
-		for (int i = 0; i < data.game->map_h; i++)
-			ft_printf("%s\n", data.game->map[i]);
-		//data_init(&data);
 		ft_mlx_game(&data);
-		ft_exit(&data); //¿Da errores si no se ha llegado a crear la ventana?
+		ft_exit(&data);
 	}
-	return (0);
+	return (1);
 }
