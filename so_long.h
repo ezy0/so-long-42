@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:29:45 by migmoren          #+#    #+#             */
-/*   Updated: 2023/07/07 12:22:02 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/07/26 21:10:46 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,9 @@ void	ft_draw_elements(int w, int h, char map_char, t_data *data);
 int		ft_keys(int key, t_data *data);
 void	ft_movement(int x, int y, t_data *data);
 void	ft_print_movements(t_data *data);
+int		ft_valid_path(t_game *game);
+int		ft_check_exit(int x, int y, char **map, t_game *game);
+int		ft_valid_keys(t_game *game);
+int		ft_check_keys(int x, int y, char **map, t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:06:49 by migmoren          #+#    #+#             */
-/*   Updated: 2023/07/07 13:24:07 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/07/26 21:16:48 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_validate_extension(char *map)
 	return (1);
 }
 
-int	ft_validate_map(t_game *game)//COMPROBAR CAMINO VALIDO
+int	ft_validate_map(t_game *game)
 {
 	int		len;
 	int		h;
@@ -45,7 +45,6 @@ int	ft_validate_map(t_game *game)//COMPROBAR CAMINO VALIDO
 	if (!ft_validate_walls(game, h - 1, len)
 		|| !ft_validate_elements(game, h, len))
 		ft_map_error(3, game, NULL);
-	//Hay que chekear tambien el camino valido
 	return (1);
 }
 

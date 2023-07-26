@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 13:27:05 by migmoren          #+#    #+#             */
-/*   Updated: 2023/07/07 13:18:42 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/07/26 21:10:33 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,11 @@ void	ft_mlx_game(t_data *data)
 	if (!data->win)
 		ft_mlx_error(data);
 	ft_render(data);
+	if (!ft_valid_path(data->game) || !ft_valid_keys(data->game))
+	{
+		ft_printf("Error\nNo se encuentra ningún camino válido\n");
+		ft_exit(data);
+	}
 	mlx_key_hook(data->win, ft_keys, data);
 	ft_print_movements(data);
 	mlx_hook(data->win, 17, 0, ft_exit, data);
