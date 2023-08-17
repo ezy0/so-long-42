@@ -5,21 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 18:44:54 by migmoren          #+#    #+#             */
-/*   Updated: 2023/05/29 11:46:13 by migmoren         ###   ########.fr       */
+/*   Created: 2023/01/29 18:44:54 by alflores          #+#    #+#             */
+/*   Updated: 2023/06/07 09:18:41 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*get_buffer(char *buffer, int fd)	// SE ESTÁ ESCRIBIENDO MAL EN BUFFER POR ALGUN MOTIV ME VOY A SUICIDAR
+char	*get_buffer(char *buffer, int fd)
 {
 	char	*aux;
 	int		i;
 
-	if (!buffer || (buffer && ft_strchr (buffer, '\n')))
+	if (buffer && ft_strchr_gnl(buffer, '\n'))
 		return (buffer);
-	aux = (char *)ft_calloc(sizeof(char), BUFFER_SIZE + 1);
+	aux = ft_calloc_gnl(sizeof(char), BUFFER_SIZE + 1);
 	if (!aux)
 		return (NULL);
 	i = 1;
@@ -33,8 +33,8 @@ char	*get_buffer(char *buffer, int fd)	// SE ESTÁ ESCRIBIENDO MAL EN BUFFER POR
 			return (NULL);
 		}
 		aux[i] = '\0';
-		buffer = ft_strjoin(buffer, aux);
-		if (ft_strchr(buffer, '\n'))
+		buffer = ft_strjoin_gnl(buffer, aux);
+		if (ft_strchr_gnl(buffer, '\n'))
 			break ;
 	}
 	free(aux);
@@ -51,7 +51,7 @@ char	*get_line(char *buffer)
 		return (NULL);
 	while (buffer[i] != '\n' && buffer[i] != '\0')
 		i++;
-	line = (char *)ft_calloc(sizeof(char), (i + 2));
+	line = ft_calloc_gnl(sizeof(char), (i + 2));
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -77,20 +77,20 @@ char	*get_clean_buffer(char *buffer)
 		l_line++;
 	if (!buffer[l_line])
 	{
-		free (buffer);
+		free(buffer);
 		return (NULL);
 	}
 	l_line++;
-	trash = (char *)malloc(sizeof(char) * (ft_strlen(buffer) - l_line + 1));
+	trash = malloc(sizeof(char) * (ft_strlen_gnl(buffer) - l_line + 1));
 	if (!trash)
 	{
-		free (buffer);
+		free(buffer);
 		return (NULL);
 	}
 	while (buffer[l_line])
 		trash[l_trash++] = buffer[l_line++];
 	trash[l_trash] = '\0';
-	free (buffer);
+	free(buffer);
 	return (trash);
 }
 
@@ -98,11 +98,11 @@ char	*get_next_line(int fd)
 {
 	static char	*buffer;
 	char		*line;
-	
+
 	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= 2147483647)
 		return (NULL);
 	if (!buffer)
-		buffer = (char *)ft_calloc(sizeof(char), 1);
+		buffer = ft_calloc_gnl(sizeof(char), 1);
 	buffer = get_buffer(buffer, fd);
 	if (!buffer)
 		return (NULL);

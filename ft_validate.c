@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:06:49 by migmoren          #+#    #+#             */
-/*   Updated: 2023/08/17 09:53:19 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/08/17 13:34:12 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ int	ft_validate_extension(char *map)
 	len = ft_strlen(map);
 	aux = ft_substr(map, len - 4, len - 1);
 	if (!map || ft_strncmp(aux, ".ber", 4))
+	{
+		free(aux);
 		return (0);
+	}
+	free(aux);
 	return (1);
 }
 
@@ -40,7 +44,8 @@ int	ft_validate_map(t_game *game)
 	{	
 		if (!game->map[h])
 			ft_map_error(7, game, NULL, 0);
-		if (game->map[h][0] != '1' || game->map[h][len - 1] != '1')
+		if (ft_strlen(game->map[h]) != len
+			|| game->map[h][0] != '1' || game->map[h][len - 1] != '1')
 			ft_map_error(3, game, NULL, 0);
 		h++;
 	}

@@ -6,19 +6,19 @@
 #    By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 18:28:03 by migmoren          #+#    #+#              #
-#    Updated: 2023/07/26 19:26:37 by migmoren         ###   ########.fr        #
+#    Updated: 2023/08/17 13:24:03 by migmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-CC = gcc -Wall -Wextra -Werror -g -fsanitize=address
+CC = gcc -Wall -Wextra -Werror
 
 INCLUDE = -Llibft -lft -I ./ -I mlx
 
 MLX = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
-SRC = main.c ft_init.c ft_map.c ft_validate.c ft_handler.c ft_mlx.c ft_renderize.c ft_utils.c
+SRC = main.c ft_init.c ft_map.c ft_validate.c ft_handler.c ft_mlx.c ft_renderize.c ft_path.c
 OBJS = ${SRC:.c=.o}
 
 %.o: %.c libft/libft.a

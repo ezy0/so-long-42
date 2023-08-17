@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:29:45 by migmoren          #+#    #+#             */
-/*   Updated: 2023/08/17 09:18:43 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/08/17 11:24:12 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,14 @@ void	ft_map_height(t_game *game, char *map);
 void	ft_movement(int x, int y, t_data *data);
 int		ft_keys(int key, t_data *data);
 void	ft_mlx_game(t_data *data);
+void	ft_print_movements(t_data *data);
 //FT_RENDERIZE
 void	ft_put_img(char *img, int x, int y, t_data *data);
 void	ft_render(t_data *data);
 void	ft_floor(t_data *data);
 void	ft_draw_walls(int w, int h, char map_char, t_data *data);
 void	ft_draw_elements(int w, int h, char map_char, t_data *data);
-//FT_UTILS
-void	ft_print_movements(t_data *data);
+//FT_PATH
 int		ft_valid_path(t_game *game);
 int		ft_check_exit(int x, int y, char **map, t_game *game);
 int		ft_valid_keys(t_game *game);

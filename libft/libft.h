@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:00:26 by migmoren          #+#    #+#             */
-/*   Updated: 2023/05/29 11:47:08 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/06/07 09:26:50 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,10 @@ char	*get_next_line(int fd);
 char	*get_clean_buffer(char *buffer);
 char	*get_line(char *buffer);
 char	*get_buffer(char *buffer, int fd);
+size_t	ft_strlen_gnl(const char *str);
+void	*ft_calloc_gnl(size_t count, size_t size);
+char	*ft_strchr_gnl(const char *str, int c);
+char	*ft_strjoin_gnl(char const *s1, char const *s2);
+void	ft_bzero_gnl(void *str, size_t n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 13:27:05 by migmoren          #+#    #+#             */
-/*   Updated: 2023/08/17 09:56:05 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/08/17 11:23:56 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,18 @@ void	ft_mlx_game(t_data *data)
 	ft_print_movements(data);
 	mlx_hook(data->win, 17, 0, ft_exit, data);
 	mlx_loop(data->mlx);
+}
+
+void	ft_print_movements(t_data *data)
+{
+	if (data->game->moves > 0)
+	{
+		ft_printf("Has realizado: %d ", data->game->moves);
+		if (data->game->moves == 1)
+			ft_printf("movimiento\n");
+		else
+			ft_printf("movimientos\n");
+	}
+	else
+		ft_printf("Aún no te has movido\n");
 }
