@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 19:13:47 by migmoren          #+#    #+#             */
-/*   Updated: 2023/07/07 13:17:43 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/08/17 09:22:23 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	map_init(t_game *game, char *map)
 {
 	ft_map_height(game, map);
 	if (game->map_h == 0)
-		ft_map_error(2, game, NULL);
+		ft_map_error(2, game, NULL, 0);
 	ft_parse_map(game, map);
 	if (!ft_validate_map(game))
-		ft_map_error(3, game, NULL);
+		ft_map_error(3, game, NULL, 0);
 }

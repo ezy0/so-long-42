@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 13:58:00 by migmoren          #+#    #+#             */
-/*   Updated: 2023/07/07 13:20:45 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/08/17 09:25:01 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_put_img(char *img, int x, int y, t_data *data)
 	if (!data->image)
 	{
 		mlx_destroy_window(data->mlx, data->win);
-		ft_map_error(4, data->game, NULL);
+		ft_map_error(4, data->game, NULL, 0);
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->image, x, y);
 	mlx_destroy_image(data->mlx, data->image);

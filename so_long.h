@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:29:45 by migmoren          #+#    #+#             */
-/*   Updated: 2023/07/26 21:10:46 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/08/17 09:18:43 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,30 +65,38 @@ typedef struct s_data {
 	t_game	*game;
 }						t_data;
 
-void	game_init(t_game *game);
-void	map_init(t_game *game, char *map);
-int		ft_validate_extension(char *map);
-void	ft_map_height(t_game *game, char *map);
-void	ft_map_error(int error, t_game *game, char *aux);
+//FT_HANDLER
+void	ft_map_error(int error, t_game *game, char *aux, int no_map);
+void	ft_error_msg(int error);
 void	ft_main_exit(t_data *data);
-void	ft_parse_map(t_game *game, char *map);
-int		ft_validate_map(t_game *game);
-int		ft_validate_walls(t_game *game, int h, int w);
-int		ft_validate_elements(t_game *game, int h, int w);
-void	ft_mlx_game(t_data *data);
 void	ft_mlx_error(t_data *data);
 int		ft_exit(t_data *data);
+//FT_INIT
+void	game_init(t_game *game);
+void	map_init(t_game *game, char *map);
+//FT_MAP
+void	ft_parse_map(t_game *game, char *map);
+void	ft_map_height(t_game *game, char *map);
+//FT_MLX
+void	ft_movement(int x, int y, t_data *data);
+int		ft_keys(int key, t_data *data);
+void	ft_mlx_game(t_data *data);
+//FT_RENDERIZE
+void	ft_put_img(char *img, int x, int y, t_data *data);
 void	ft_render(t_data *data);
 void	ft_floor(t_data *data);
-void	ft_put_img(char *img, int x, int y, t_data *data);
 void	ft_draw_walls(int w, int h, char map_char, t_data *data);
 void	ft_draw_elements(int w, int h, char map_char, t_data *data);
-int		ft_keys(int key, t_data *data);
-void	ft_movement(int x, int y, t_data *data);
+//FT_UTILS
 void	ft_print_movements(t_data *data);
 int		ft_valid_path(t_game *game);
 int		ft_check_exit(int x, int y, char **map, t_game *game);
 int		ft_valid_keys(t_game *game);
 int		ft_check_keys(int x, int y, char **map, t_game *game);
+//FT_VALIDATE
+int		ft_validate_extension(char *map);
+int		ft_validate_map(t_game *game);
+int		ft_validate_walls(t_game *game, int h, int w);
+int		ft_validate_elements(t_game *game, int h, int w);
 
 #endif

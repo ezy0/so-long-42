@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:06:49 by migmoren          #+#    #+#             */
-/*   Updated: 2023/07/26 21:16:48 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/08/17 09:53:19 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,19 @@ int	ft_validate_map(t_game *game)
 	len = ft_strlen(game->map[0]);
 	game->map_w = len;
 	if (game->map_h == game->map_w)
-		ft_map_error(3, game, NULL);
+		ft_map_error(5, game, NULL, 0);
 	while (h < game->map_h)
 	{	
+		if (!game->map[h])
+			ft_map_error(7, game, NULL, 0);
 		if (game->map[h][0] != '1' || game->map[h][len - 1] != '1')
-			ft_map_error(3, game, NULL);
+			ft_map_error(3, game, NULL, 0);
 		h++;
 	}
-	if (!ft_validate_walls(game, h - 1, len)
-		|| !ft_validate_elements(game, h, len))
-		ft_map_error(3, game, NULL);
+	if (!ft_validate_walls(game, h - 1, len))
+		ft_map_error(3, game, NULL, 0);
+	if (!ft_validate_elements(game, h, len))
+		ft_map_error(6, game, NULL, 0);
 	return (1);
 }
 

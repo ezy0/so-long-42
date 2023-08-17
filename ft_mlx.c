@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 13:27:05 by migmoren          #+#    #+#             */
-/*   Updated: 2023/07/26 21:10:33 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/08/17 09:56:05 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_mlx_game(t_data *data)
 	if (!data->mlx)
 		ft_mlx_error(data);
 	data->win = mlx_new_window(data->mlx,
-			win_w * BCKG_W, win_h * BCKG_H, "diamantes pal free");
+			win_w * BCKG_W, win_h * BCKG_H, "<><><> SO LONG <><><>");
 	if (!data->win)
 		ft_mlx_error(data);
 	ft_render(data);

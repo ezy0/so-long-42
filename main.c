@@ -6,7 +6,7 @@
 /*   By: migmoren <migmoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 19:06:47 by migmoren          #+#    #+#             */
-/*   Updated: 2023/07/26 17:45:14 by migmoren         ###   ########.fr       */
+/*   Updated: 2023/08/17 09:04:18 by migmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char *argv[])
 		data.game = (t_game *)malloc(sizeof(t_game));
 		if (!data.game)
 		{
-			ft_printf("Error\nFallo de memoria\n");
 			ft_main_exit(&data);
 			return (0);
 		}
