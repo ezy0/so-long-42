@@ -6,7 +6,7 @@ https://free-game-assets.itch.io/free-undead-loot-pixel-art-icons
 #
 https://penzilla.itch.io/hooded-protagonist
 #
-100/100 😈😈🥶
+✅ 100/100 😈😈🥶
 
 
 
